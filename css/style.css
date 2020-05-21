@@ -10,10 +10,17 @@
   margin: auto;
   background-color: #900C3F;
 }
-/* .bg-red {
-background-color: red;
+.bg-primary {
+  background-color: #900C3F;
+}
+.bg-secondary {
+  background-color: orange;
+}
+.section {
+  padding: 40px 0;
+}
 
-} */
+
 /* regole generali */
 body {
   font-family: 'Roboto', sans-serif;
@@ -39,12 +46,28 @@ select {
   width: 200px;
 }
 
+button {
+    padding: 10px 5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
 /* debug */
 /* classi comuni */
 .menu li {
   display: inline-block;
   padding: 0 20px;
 }
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+
+
 
 /* menu navigazione */
 header .navigation {
@@ -78,9 +101,8 @@ header .navigation {
 
 }
 .form-passeggero {
-  height: 800px;
 }
-.form-passeggero .titolo {
+.titolo {
   text-align: center;
   color: #fff;
   font-size: 20px;
@@ -112,11 +134,17 @@ header .navigation {
 
 }
 
-.button {
-  text-align: center;
-  border: 1px solid grey;
-
+/* sezione ticket */
+.content {
+  margin:  50px;
+  padding: 20px;
 }
+.btn-generate {
+  text-align: center;
+}
+
+
+
 
 /* mediaq */
 @media all and (max-width: 767px) {
