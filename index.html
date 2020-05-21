@@ -1,18 +1,108 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
 
-    <title> Biglietto treno form</title>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+  <title> Biglietto treno form</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <!-- inizio navigation -->
+      <nav class="navigation">
+        <!-- logo -->
+        <div class="box logo">
+          <img src="img/logo.png" alt="italo logo">
+        </div>
+
+        <!-- menu  -->
+        <div class="box">
+          <ul class="menu">
+            <li>
+              <i class="fas fa-globe-europe"></i>
+              <a href="#"> Destinazioni</a>
+            </li>
+
+            <li>
+              <i class="fas fa-exclamation"></i>
+              <a href="#">Offerte</a>
+            </li>
+
+            <li>
+              <i class="fas fa-shopping-cart"></i>
+              <a href="#">Acquista</a>
+            </li>
+
+            <li>
+              <i class="fas fa-user-circle"></i>
+              <a href="#"> Account</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- fine navigation -->
+    </header>
+
+    <!-- inizio main -->
+    <main>
+      <!-- inizio sezione form -->
+      <section id="form-passeggero" class="form-passeggero">
+        <!-- titolo -->
+        <div class="titolo">
+          <h2> Acquista il tuo biglietto</h2>
+        </div>
+
+        <div class="form">
+
+          <div class="box-input">
+            <label> Nome e cognome</label>
+            <input id="form-nome" type="text" placeholder="Nome e Cognome">
+          </div>
+
+          <div class="box-input">
+            <label> km da percorrere</label>
+            <input id="form-km" type="text" placeholder=" Scrivi i km che percorrerai">
+          </div>
+
+          <div class="box-input">
+            <label>fascia di eta</label>
+            <select id="form-eta">
+              <option value="mag">maggiorenne</option>
+              <option value="min">minorenne</option>
+              <option value="over"> over 65</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="button">
+          <button id="form-genera"> Genera</button>
+          <button id="form-cancella"> Cancella</button>
+        </div>
+        <!-- section form -->
+      </section>
 
 
-<!-- script -->
+      <!-- inizio sezione ticket -->
+      <!-- <section>
+        <h2></h2>
+      </section> -->
+    </main>
 
-<script type="text/javascript" src="js/script.js">
 
-</script>
-  </body>
+    <!-- script -->
+
+    <script type="text/javascript" src="js/script.js">
+
+    </script>
+
+
+  </div>
+</body>
 </html>

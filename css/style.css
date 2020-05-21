@@ -4,10 +4,141 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* layout */
+.wrap {
+  width: 80%;
+  margin: auto;
+  background-color: #900C3F;
+}
+/* .bg-red {
+background-color: red;
 
+} */
+/* regole generali */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+label, input {
+  display: block;
+  padding: 10px 20px;
+}
+select {
+  border-radius: 3px;
+  height: 30px;
+  width: 200px;
+}
 
 /* debug */
+/* classi comuni */
+.menu li {
+  display: inline-block;
+  padding: 0 20px;
+}
 
-body {
-  background-color: red;
+/* menu navigazione */
+header .navigation {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.navigation .box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.navigation .box.logo img {
+  height: 100px;
+  width: auto;
+}
+
+
+/* main */
+
+/* sezione form-passeggero */
+
+.form {
+  display: flex;
+  justify-content: center;
+
+}
+.form-passeggero {
+  height: 800px;
+}
+.form-passeggero .titolo {
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 40px 0;
+}
+.form {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 40px 0;
+}
+.box-input {
+  padding: 0 30px;
+
+}
+.box-input input {
+  height: 30px;
+  width: 200px;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+}
+
+.box-input label {
+  font-size: 16px;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.button {
+  text-align: center;
+  border: 1px solid grey;
+
+}
+
+/* mediaq */
+@media all and (max-width: 767px) {
+
+
+  header .navigation .box .menu {
+    display: none;
+  }
+  header .navigation{
+    justify-content: center;
+  }
+  .form-passeggero .titolo {
+    font-size: 15px;
+    padding: 30px 0;
+  }
+
+
+}
+@media all and ( min-width: 768px) and (max-width: 1077px) {
+
+  header .navigation {
+    justify-content: center;
+  }
+
 }
