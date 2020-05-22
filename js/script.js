@@ -76,7 +76,7 @@ var showticket = document.getElementById('ticket');
 
 buttonAnnulla.addEventListener( 'click', function (){
 
-  showticket.className = showticket.classList + (' hidden');
+  showticket.classList.remove('show') ;
 
   // annullo nome
   nomePasseggero.value = '';
