@@ -1,97 +1,102 @@
-// dichiaro le variabili input
 
-// FORM
-var nomePasseggero = document.getElementById('form-nome');
-var kmDistance = document.getElementById ('form-km');
-var etaPasseggero = document.getElementById ('form-eta');
-//bottoni
-var buttonGenera = document.getElementById ('form-genera');
-var buttonAnnulla = document.getElementById('form-annulla');
-// TICKET
-var nomeTicket = document.getElementById ('ticket-nome');
-var distanceTicket = document.getElementById ('ticket-km');
-var etaTicket = document.getElementById ( 'ticket-eta');
-var prezzoTicket = document.getElementById ('ticket-prezzo');
-var numeroCarrozza = document.getElementById ( 'ticket-carrozza');
-var numeroTicket = document.getElementById ('ticket-number');
-var scontoTicket = document.getElementById ('ticket-sconto');
+// variabili bottoni
+btnGenera = document.getElementById('form-genera');
+btnAnnulla = document.getElementById ('form-annulla');
+
+// variabili input
+var inputNome = document.getElementById('form-nome');
+var inputKm = document.getElementById('form-km');
+var inputEta = document.getElementById('form-eta');
 
 
-//  altre variabili
-var kmDistanceValue;
-var etaPasseggeroValue;
-var nomePasseggeroValue;
+// variabili ticket
 
-// LAYOUT
-var showticket = document.getElementById('ticket');
-// funzioni - genera
-// quando clicco su genera deve succere qualcosa
-  buttonGenera.addEventListener( 'click', function()
-  {
-    showticket.className = showticket.classList + ' show';
-    nomePasseggeroValue = nomePasseggero.value;
-    kmDistanceValue = parseInt(kmDistance.value);
-    etaPasseggeroValue = etaPasseggero.value;
+var outputNome = document.getElementById ('ticket-nome');
+var outputOfferta = document.getElementById ('ticket-offerta');
+var outputCarrozza = document.getElementById ('ticket-carrozza');
+var outputCodice = document.getElementById ('ticket-codice');
+var outputCosto = document.getElementById ('ticket-costo');
 
-      //calcolo prezzo
+// evento click genera
 
-    var prezzo = kmDistanceValue * 0.21;
-    sconto = 'Prezzo Standard';
-    console.log( prezzo);
+btnGenera.addEventListener('click',
+function () {
 
+  // leggo i dati immessi dall'utente
 
-    if ( etaPasseggeroValue == 'minorenne') {
-        prezzo = prezzo - ( prezzo * 20 / 100);
-        console.log ( prezzo.toFixed(2) );
-        sconto = 'Abbiamo applicato uno sconto del 20%';
+  nomeValue = inputNome.value;
+  kmValue = inputKm.value;
+  etaValue = inputEta.value;
+
+  //calcolo
+
+  var prezzo = kmValue * 0.21;
+  var sconto;
+
+  // IMPORTANTE -  validazione
 
 
+  if ((nomeValue === '') || (isNaN(kmValue))){
 
-      }  else if (etaPasseggeroValue == 'over 65'){
+    // Se il campo "nome" è VUOTO o il campo km non è un numero
+    //  allora mostro messaggio di errore
 
-        prezzo = prezzo - (prezzo * 40 / 100);
-        console.log ( prezzo.toFixed(2) );
-        sconto = 'Abbiamo applicato uno sconto del 40%';
+    var errore = document.getElementById ('error-message');
+    errore.className = ' show';
 
+  }
+  // se le condizioni sono soddisfatte allora ..
+  else {
+    // parte logica
+    if ( etaValue == 'minorenne') {
+      prezzo = prezzo - ( prezzo * 20 / 100);
+      sconto = ' Ridotto under 18'
 
-      }
+    } else if ( etaValue == 'over 65') {
+      prezzo = prezzo - ( prezzo * 40 / 100);
+      sconto = 'ridotto over 65'
 
+    }
+    else {
+      prezzo = prezzo;
 
+      sconto = 'prezzo standard'
 
-
-
-    //compilazione biglietti
-    nomeTicket.innerHTML = nomePasseggero.value;
-    distanceTicket.innerHTML = kmDistance.value;
-    etaTicket.innerHTML = etaPasseggero.value;
-    prezzoTicket.innerHTML = prezzo.toFixed(2) + ' euro';
-    numeroCarrozza.innerHTML = Math.floor((Math.random() * 10) + 1);
-    numeroTicket.innerHTML = Math.random().toFixed(3);
-    scontoTicket.innerHTML = sconto;
-
-
-
+    }
+    // compilo il ticket
+    outputNome.innerHTML = nomeValue;
+    outputOfferta.innerHTML = 'da compilare';
+    outputCosto.innerHTML = prezzo.toFixed(2) + ' euro';
+    outputOfferta.innerHTML = sconto;
+    outputCarrozza.innerHTML = Math.floor(Math.random() * 10) + 1;
+    outputCodice.innerHTML = ' IT' + Math.floor(Math.random() * 101) + ' NA';
+    //mostro il biglietto
+    var showTicket = document.getElementById ('ticket');
+    showTicket.className = ' show';
+  }
 })
-// funzioni - annulla
-
-buttonAnnulla.addEventListener( 'click', function (){
-
-  showticket.classList.remove('show') ;
-
-  // annullo nome
-  nomePasseggero.value = '';
-  nomeTicket.innerHTML = '';
-  // annullo km
-  kmDistance.value = '';
-  distanceTicket.innerHTML = '';
-  // annullo fascia di eta
-  etaPasseggero.value = 'maggiorenne';
-  etaTicket.innerHTML = '';
-
-  numeroCarrozza.innerHTML = '';
-  numeroTicket.innerHTML = '';
-  scontoTicket.innerHTML = '';
 
 
+// evento click annulla
+btnAnnulla.addEventListener ('click',
+function() {
 
+  // nascondo messaggio di errore
+  var errore = document.getElementById ('error-message');
+  errore.className = ' hidden';
+
+  //nascondo il biglietto
+  var hiddenTicket = document.getElementById ('ticket');
+  hiddenTicket.className = ' hidden';
+
+  // svuoto contenuto showTicket
+  inputNome.value = '';
+  outputNome.innerHTML = '';
+  inputKm.value = '';
+  outputOfferta.innerHTML = '';
+  outputCosto.innerHTML = '';
+  inputEta.value = '0';
+  outputOfferta.innerHTML = '';
+  outputCarrozza.innerHTML ='';
+  outputCodice.innerHTML = '';
 })

@@ -5,26 +5,31 @@
   box-sizing: border-box;
 }
 /* layout */
-.wrap {
+
+
+.bg-white {
+  background-color: #fff;
   width: 80%;
   margin: auto;
-  background-color: #900C3F;
-}
-.bg-primary {
-  background-color: #900C3F;
-}
-.bg-secondary {
-  background-color: orange;
-}
-.section {
-  padding: 40px 0;
+  border-radius: 5px;
+  padding: 20px 20px;
+  box-shadow: 10px 13px 5px -2px rgba(0,0,0,0.14);
 }
 
-
+.bg-grey {
+  background-color: grey;
+}
 /* regole generali */
 body {
+  background-color: #b91550;
   font-family: 'Roboto', sans-serif;
+  min-width: 300px;
 }
+
+section {
+  margin: 20px 0;
+}
+
 ul {
   list-style-type: none;
   display: inline-block;
@@ -37,9 +42,20 @@ li a {
 }
 
 label, input {
+  text-align: center;
+  color: #b91550;
   display: block;
-  padding: 10px 20px;
 }
+
+label {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 30px 20px;
+
+}
+
+
 select {
   border-radius: 3px;
   height: 30px;
@@ -47,12 +63,13 @@ select {
 }
 
 button {
-    padding: 10px 5px;
-    background-color: white;
-    border-radius: 3px;
+  padding: 10px 5px;
+  background-color: white;
+  border-radius: 3px;
 }
 
 /* debug */
+
 /* classi comuni */
 .menu li {
   display: inline-block;
@@ -90,62 +107,108 @@ header .navigation {
   width: auto;
 }
 
+/* fine menu navigazione */
+
 
 /* main */
 
-/* sezione form-passeggero */
+/* sezione input */
 
 .form {
   display: flex;
   justify-content: center;
-
+  flex-flow: row wrap;
+  padding: 40px 0;
 }
-.form-passeggero {
+.bg-white h3 {
+  font-size: 13px;
+  color: #b91550;
+  padding: 10px 0;
 }
 .titolo {
   text-align: center;
   color: #fff;
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   padding: 40px 0;
 }
-.form {
-  display: flex;
-  flex-flow: row wrap;
-  padding: 40px 0;
-}
+
+
 .box-input {
   padding: 0 30px;
-
 }
-.box-input input {
+
+.box-input input, select {
+  font-size: 15px;
   height: 30px;
   width: 200px;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-}
-
-.box-input label {
-  font-size: 16px;
-  color: white;
-  font-weight: bolder;
-  text-align: center;
+  border: 1px solid #b91550;
+  border-radius: 5px;
   text-transform: uppercase;
 
 }
 
-/* sezione ticket */
-.content {
-  margin:  50px;
-  padding: 20px;
+.box-input input:focus  {
+  background-color: #b91550;
+  color: #fff;
+  outline-color: #b91550;
+
 }
+
+.box-input input:focus::placeholder {
+  color: #fff;
+}
+/* bottoni */
 .btn-generate {
   text-align: center;
 }
+.btn-generate button {
+  background-color: #d2d2d2;
+  font-size: 13px;
+  font-weight: bolder;
+  color: #b91550;
+  padding: 5px 1px;
+  border-radius: 3px;
+  margin: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.btn-generate button:hover {
+  background-color: grey;
+}
+.btn-generate button:focus {
+  border: none;
+  color: #fff;
+  outline-color: none;
+
+}
+
+
+/* sezione ticket */
 
 
 
+.ticket-wrap {
+  display: flex;
+  flex-flow: row wrap ;
+  min-height: 150px;
+  border: 1px solid #000;
+}
 
+.output-ticket {
+  display: flex;
+  flex-flow: column wrap ;
+  justify-content: space-between;
+  padding: 30px 25px;
+}
+
+.output-ticket.bg-grey {
+  justify-content: flex-start;
+  width: 240px;
+  padding: 30px 25px;
+}
 /* mediaq */
 @media all and (max-width: 767px) {
 
@@ -161,12 +224,20 @@ header .navigation {
     padding: 30px 0;
   }
 
-
+  .output-ticket.bg-grey {
+    flex-basis: 100%;
+  }
 }
 @media all and ( min-width: 768px) and (max-width: 1077px) {
+  /* header */
 
   header .navigation {
     justify-content: center;
+  }
+  /* main */
+
+  .output-ticket.bg-grey {
+    flex-basis: 100%;
   }
 
 }

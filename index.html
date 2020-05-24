@@ -11,52 +11,58 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="wrap">
 
-    <header>
-      <!-- inizio navigation -->
-      <nav class="navigation">
-        <!-- logo -->
-        <div class="box logo">
-          <img src="img/logo.png" alt="italo logo">
-        </div>
+  <header>
+    <!-- inizio navigation -->
+    <nav class="navigation">
+      <!-- logo -->
+      <div class="box logo">
+        <img src="img/logo.png" alt="italo logo">
+      </div>
 
-        <!-- menu  -->
-        <div class="box">
-          <ul class="menu">
-            <li>
-              <i class="fas fa-globe-europe"></i>
-              <a href="#"> Destinazioni</a>
-            </li>
+      <!-- menu  -->
+      <div class="box">
+        <ul class="menu">
+          <li>
+            <i class="fas fa-globe-europe"></i>
+            <a href="#"> Destinazioni</a>
+          </li>
 
-            <li>
-              <i class="fas fa-exclamation"></i>
-              <a href="#">Offerte</a>
-            </li>
+          <li>
+            <i class="fas fa-exclamation"></i>
+            <a href="#">Offerte</a>
+          </li>
 
-            <li>
-              <i class="fas fa-shopping-cart"></i>
-              <a href="#">Acquista</a>
-            </li>
+          <li>
+            <i class="fas fa-shopping-cart"></i>
+            <a href="#">Acquista</a>
+          </li>
 
-            <li>
-              <i class="fas fa-user-circle"></i>
-              <a href="#"> Account</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!-- fine navigation -->
-    </header>
+          <li>
+            <i class="fas fa-user-circle"></i>
+            <a href="#"> Account</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- fine navigation -->
+  </header>
 
-    <!-- inizio main -->
-    <main>
-      <!-- inizio sezione form -->
-      <section id="form-passeggero" class="form-passeggero bg-primary section">
-        <!-- titolo -->
-        <div class="titolo">
-          <h2> Acquista il tuo biglietto</h2>
-        </div>
+  <!-- inizio main -->
+  <main>
+    <!-- inizio sezione form -->
+
+
+
+
+
+    <section>
+      <!-- titolo -->
+      <div class="titolo">
+        <h2> Calcola il prezzo del  tuo biglietto</h2>
+      </div>
+
+      <div class="bg-white">
 
         <div class="form">
 
@@ -67,15 +73,16 @@
 
           <div class="box-input">
             <label> km da percorrere</label>
-            <input id="form-km" type="number" placeholder=" Scrivi i km che percorrerai">
+            <input id="form-km" type="number" placeholder=" Km da percorrere">
           </div>
 
           <div class="box-input">
             <label>fascia di eta</label>
             <select id="form-eta">
+              <option value="0">  --- </option>
               <option value="minorenne"> 0 - 17 anni</option>
               <option value="maggiorenne"> 18 - 65 anni</option>
-              <option value="over 65"> > Maggiore di 65 anni </option>
+              <option value="over 65"> Maggiore di 65 anni </option>
             </select>
           </div>
 
@@ -86,65 +93,76 @@
           <button id="form-annulla"> Annulla</button>
         </div>
         <!-- section form -->
-      </section>
-
-
-      <!-- inizio sezione ticket -->
-
-      <section id="ticket" class="ticket bg-secondary section hidden" >
-        <div class="titolo">
-          <h2> Il Tuo biglietto</h2>
+        <div id="error-message" class=" hidden">
+          <h3>Attenzione, controlla che i dati siano stati immessi correttamente</h3>
         </div>
-        <div class="content">
-          <p>
-            Nome passeggero:
-            <span id="ticket-nome"> </span>
-          </p>
 
-          <p> Km destinazione:
-              <span id="ticket-km"></span>
-          </p>
+      </div>
+
+    </section>
 
 
-          <p> Fascia di eta:
-            <span id="ticket-eta"></span>
-          </p>
+    <!-- inizio sezione ticket -->
 
-          <p>
-            Sconto:
-            <span id="ticket-sconto"></span>
-           </p>
+    <section >
 
 
+      <div class="titolo">
+        <h2> Il Tuo biglietto</h2>
+      </div>
 
-          <p>
-            Prezzo:
-            <span id="ticket-prezzo"></span>
-           </p>
+      <!-- ticket -->
+      <div id="ticket" class="hidden">
 
-          <p>
-             Carrozza:
-           <span id="ticket-carrozza"></span>
-         </p>
+        <div class="bg-white">
+          <h2>Dettaglio passeggeri</h2>
 
-          <p>
-            Number ticket:
-            <span id="ticket-number"></span>
-           </p>
+          <div class="ticket-wrap">
+            <div class="output-ticket bg-grey">
+              <h4>  Nome passeggero:  </h4>
+              <span id="ticket-nome">  </span>
+            </div>
+
+            <div class="output-ticket">
+              <h4>  Offerta: </h4>
+              <span id="ticket-offerta"></span>
+            </div>
+
+            <div class="output-ticket">
+              <h4>Carrozza:</h4>
+              <span id="ticket-carrozza"> </span>
+            </div>
+
+            <div class="output-ticket">
+              <h4>Codice cp: </h4>
+              <span id="ticket-codice"> </span>
+            </div>
+
+            <div class="output-ticket">
+              <h4> Costo bigletto: </h4>
+              <span id="ticket-costo"> </span>
+            </div>
+
+          </div>
 
 
         </div>
-      </section>
-    </main>
+
+      </div>
 
 
-    <!-- script -->
-
-    <script type="text/javascript" src="js/script.js">
-
-    </script>
 
 
-  </div>
+    </section>
+  </main>
+
+
+  <!-- script -->
+
+  <script type="text/javascript" src="js/script.js">
+
+  </script>
+
+
 </body>
 </html>
